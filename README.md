@@ -1,2 +1,0 @@
-# Kakatz-Quiz
-TCLP
