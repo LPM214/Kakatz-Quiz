@@ -140,7 +140,7 @@
         <div id="login-screen">
             <h2>כניסה למערכת</h2>
             <p style="text-align: center; font-size: 14px; color: #6b7280;">הכנס את קוד הגישה</p>
-            <input type="password" id="passcode" placeholder="קוד (2142)" maxlength="4">
+            <input type="password" id="passcode" placeholder="קוד" maxlength="4">
             <button id="login-btn">הכנס</button>
             <p id="login-error" style="color: var(--error-color); text-align: center; font-size: 14px;" class="hidden">קוד שגוי, נסה שוב</p>
         </div>
@@ -166,7 +166,7 @@
 
         <!-- מסך סיום -->
         <div id="finish-screen" class="hidden">
-            <h2>כל הכבוד! 🎯</h2>
+            <h2>כל הכבוד! </h2>
             <p style="text-align: center;">סיימת את כל השאלות בהצלחה.</p>
             <button id="back-btn">בחר נושא אחר</button>
         </div>
@@ -175,13 +175,13 @@
     <script>
         // מאגר השאלות והנושאים - לכאן תוכל להוסיף עוד שאלות ונושאים בקלות
         const database = {
-            "הקמת המדינה": [
+            "המנון": [
                 {
                     id: 1,
-                    text: "באיזו שנה הוכרזה מדינת ישראל?",
+                    text: "באיזה קונגרס נקבעה ״התקווה״ בתור ההמנון הרשמי של התנועה הציונית?",
                     type: "single",
-                    options: ["1947", "1948", "1949", "1950"],
-                    answer: [1] // אינדקס התשובה הנכונה (מתחיל מ-0)
+                    options: ["18", "15", "6", "4"],
+                    answer: [0] // אינדקס התשובה הנכונה (מתחיל מ-0)
                 },
                 {
                     id: 2,
