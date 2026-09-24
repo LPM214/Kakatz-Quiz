@@ -173,6 +173,7 @@
     </div>
 
     <script>
+        // מאגר השאלות והנושאים - לכאן תוכל להוסיף עוד שאלות ונושאים בקלות
         const database = {
             "הקמת המדינה": [
                 {
@@ -180,7 +181,7 @@
                     text: "באיזו שנה הוכרזה מדינת ישראל?",
                     type: "single",
                     options: ["1947", "1948", "1949", "1950"],
-                    answer: [1]
+                    answer: [1] // אינדקס התשובה הנכונה (מתחיל מ-0)
                 },
                 {
                     id: 2,
@@ -197,6 +198,7 @@
                     answer: [0]
                 }
             ]
+            // כדי להוסיף נושא נוסף, אפשר להוסיף פסיק כאן ולפתוח קטגוריה חדשה באותו מבנה
         };
 
         let currentQueue = [];
@@ -287,7 +289,8 @@
                 feedbackEl.innerText = "תשובה נכונה! כל הכבוד 🎉";
             } else {
                 feedbackEl.className = "feedback incorrect";
-                feedbackEl.innerText = "תשובה שגויה. השאלה תוחזר לסוף התור 🔄";
+                const correctTexts = currentQuestion.answer.map(idx => currentQuestion.options[idx]).join(', ');
+                feedbackEl.innerText = `תשובה שגויה. התשובה הנכונה היא: ${correctTexts}. השאלה תוחזר לסוף התור 🔄`;
                 currentQueue.push(currentQuestion);
             }
 
@@ -295,7 +298,6 @@
             document.getElementById("next-btn").classList.remove("hidden");
         }
 
-        // חיבור האירועים לכפתורים בצורה בטוחה
         document.getElementById("login-btn").addEventListener("click", checkLogin);
         document.getElementById("passcode").addEventListener("keypress", function(e) {
             if (e.key === 'Enter') checkLogin();
